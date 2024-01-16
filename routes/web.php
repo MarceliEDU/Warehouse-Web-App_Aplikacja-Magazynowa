@@ -46,3 +46,8 @@ Route::resource('produkty',ProduktyCont::class);
 Route::resource('dzialy',DzialyCont::class);
 Route::resource('dostawcy',DostawcyCont::class);
 Route::resource('look',LookCont::class);
+
+Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
