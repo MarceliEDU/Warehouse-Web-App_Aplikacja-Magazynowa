@@ -10,7 +10,16 @@
 
 <div class="container">
     
-    <div class="mt-5"></div>
+    <div class="row">
+        <a href="{{ url('/look/create') }}" class="btn btn-success btn-sm mt-2 mb-2 col-12 col-sm-6">
+            Zejście
+        </a>
+        <a href="{{ url('/look/create') }}" class="btn btn-info btn-sm mt-2 mb-2 col-12 col-sm-6">
+            Dostawa
+        </a>
+    </div>
+
+    <h2 class="text-center">Magazyn</h2>
 
     <div class="row">
         @foreach($tab as $t)

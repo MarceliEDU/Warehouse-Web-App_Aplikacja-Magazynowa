@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produkty;
 use App\Models\Dzialy;
+use App\Models\Wychodzace;
+use App\Models\Zejscia;
 
 class LookCont extends Controller
 {
@@ -25,6 +27,49 @@ class LookCont extends Controller
         $prod = Produkty::all();
 
         return view ('look.index')->with('prod', $prod)->with('dz', $dz)->with('tab', $tab);
+    }
+
+
+    public function create()
+    {
+        $dz = Dzialy::all();
+        $temp;
+        $tab = [];
+        foreach($dz as $d){
+            $d->toArray();
+            $temp = Produkty::where("id_dzialy",$d['id'])->get();
+            $temp = array(
+                'dzial'=>$d['dzial'],
+                'produkty'=>$temp
+            );
+            array_push($tab,$temp);
+        }
+        $prod = Produkty::all();
+        return view('look.create')->with('prod', $prod)->with('dz', $dz)->with('tab', $tab);
+    }
+
+    public function store(Request $request)
+    {
+        $zejscie = new Zejscia;
+        $zejscie->czy_zeszlo = 0;
+        $zejscie->save();
+
+        foreach ($request->all() as $prodId => $value) {
+            if (is_numeric($prodId)) {
+                $q = $request->input('number' . $prodId);
+                
+                $wychodzi = new Wychodzace;
+                $wychodzi->id_zejscia = $zejscie->id;
+                $wychodzi->id_produkty = $prodId;
+                $wychodzi->save();
+
+                $produkt = Produkty::find($prodId);
+                $il = $produkt->ilosc;
+                $produkt->ilosc = $il-$q;
+                $produkt->save();
+            }
+        }
+        return redirect('look')->with('message', 'Utworzono zejście.');
     }
 
 
