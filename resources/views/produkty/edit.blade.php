@@ -27,6 +27,19 @@
         @endforeach
         </select>
         </label>
+        <br />
+
+        <label>Dostawca
+        <select id="id_dostawcy" name="id_dostawcy" required>
+        @foreach($dos as $d)
+            @if($d->id == $produkt->id_dzialy)
+                <option value="{{ $d->id }}" selected>{{ $d->nazwa }}</option>
+            @else
+                <option value="{{ $d->id }}">{{ $d->nazwa }}</option>
+            @endif
+        @endforeach
+        </select>
+        </label>
 
         <button type="submit">Zapisz</button>
     </form>

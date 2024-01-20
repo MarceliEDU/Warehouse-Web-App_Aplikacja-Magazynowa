@@ -23,6 +23,15 @@
             @endforeach
             </select>
             </label>
+            <br />
+
+            <label>Dostawca
+            <select id="id_dostawcy" name="id_dostawcy" required>
+            @foreach($dos as $d)
+                <option value="{{ $d->id }}">{{ $d->nazwa }}</option>
+            @endforeach
+            </select>
+            </label>
             
             <button type="submit">Stwórz produkt</button>
         </form>

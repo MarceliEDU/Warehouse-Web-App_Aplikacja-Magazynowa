@@ -25,9 +25,11 @@ return new class extends Migration
                 $table->string('nazwa',100);
                 $table->integer('ilosc');
                 $table->unsignedBigInteger('id_dzialy');
+                $table->unsignedBigInteger('id_dostawcy');
                 $table->timestamps();
 
                 $table->foreign('id_dzialy')->references('id')->on('dzialy')->onUpdate('cascade')->onDelete('cascade');
+                $table->foreign('id_dostawcy')->references('id')->on('dostawcy')->onUpdate('cascade')->onDelete('cascade');
             }
         );
 

@@ -21,6 +21,7 @@
                 <th scope="col">Nazwa</th>
                 <th scope="col">Ilość</th>
                 <th scope="col">Dział</th>
+                <th scope="col">Dostawca</th>
                 <th scope="col">Działania</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                 <td>{{ $p->nazwa }}</td>
                 <td>{{ $p->ilosc }}</td>
                 <td>{{ $dz[$p->id_dzialy] }}</td>
+                <td>{{ $dos[$p->id_dostawcy] }}</td>
                 <td>
                     <a href="{{ url('/produkty/' . $p->id . '/edit') }}"><button class="btn btn-primary btn-sm">Edytuj</button></a>
                     <form method="POST" action="{{ url('/produkty/' . $p->id) }}" accept-charset="UTF-8" style="display:inline">

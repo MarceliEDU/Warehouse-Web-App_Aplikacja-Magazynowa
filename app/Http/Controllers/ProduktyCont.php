@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produkty;
 use App\Models\Dzialy;
+use App\Models\Dostawcy;
 
 class ProduktyCont extends Controller
 {
@@ -13,13 +14,16 @@ class ProduktyCont extends Controller
         $prod = Produkty::paginate(50);
         $dz = Dzialy::all()->toArray();
         $dzialy = array_column($dz, "dzial", "id");
-        return view ('produkty.index')->with('prod', $prod)->with('dz', $dzialy);
+        $dos = Dostawcy::all()->toArray();
+        $dostawcy = array_column($dos, "nazwa", "id");
+        return view ('produkty.index')->with('prod', $prod)->with('dz', $dzialy)->with('dos', $dostawcy);
     }
 
     public function create()
     {
         $dz = Dzialy::all();
-        return view('produkty.create')->with('dz',$dz);
+        $dos = Dostawcy::all();
+        return view('produkty.create')->with('dz',$dz)->with('dos',$dos);
     }
 
     public function store(Request $request)
@@ -35,8 +39,9 @@ class ProduktyCont extends Controller
             // Znajdź rekord do edycji
             $produkt = Produkty::findOrFail($id);
             $dz = Dzialy::all();
+            $dos = Dostawcy::all();
             // Przekieruj do widoku edycji z danymi rekordu
-            return view('produkty.edit', compact('produkt','dz'));
+            return view('produkty.edit', compact('produkt','dz','dos'));
         } catch (\Exception $e) {
             // Przekieruj z komunikatem błędu
             return redirect('/produkty')->with('message', 'Wystąpił błąd podczas edycji produktu.');
