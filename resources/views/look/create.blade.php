@@ -5,10 +5,20 @@
     
     <form action="{{ url('look') }}" method="POST">
         @csrf
-        <button type="submit" class="btn btn-success btn-sm w-100 mt-2 mb-2">Potwierdź zejście</button>
+        <button type="submit" class="btn btn-success btn-sm w-100 mt-2 mb-2">Potwierdź</button>
     
-    <div class="row">
-        
+    <div class="form-check text-center">
+        <label class="w-25">
+            <input class="form-check-input" type="radio" name="inout" id="in" value="out" required>
+            Wydanie towaru
+        </label>
+        <label class="w-25">
+            <input class="form-check-input" type="radio" name="inout" id="out" value="in" required>
+            Odbiór towaru
+        </label>
+    </div>
+
+    <div class="row">  
         
         @foreach($tab as $t)
             <div class="col-12 col-sm-6 pl-5 pr-5">

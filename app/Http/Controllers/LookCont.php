@@ -50,26 +50,35 @@ class LookCont extends Controller
 
     public function store(Request $request)
     {
-        $zejscie = new Zejscia;
-        $zejscie->czy_zeszlo = 0;
-        $zejscie->save();
+        $message = "Nie powinieneś tego widzieć :P";
+        switch($request->inout){
+        case "out":
+            $zejscie = new Zejscia;
+            $zejscie->czy_zeszlo = 0;
+            $zejscie->save();
 
-        foreach ($request->all() as $prodId => $value) {
-            if (is_numeric($prodId)) {
-                $q = $request->input('number' . $prodId);
-                
-                $wychodzi = new Wychodzace;
-                $wychodzi->id_zejscia = $zejscie->id;
-                $wychodzi->id_produkty = $prodId;
-                $wychodzi->save();
+            foreach ($request->all() as $prodId => $value) {
+                if (is_numeric($prodId)) {
+                    $q = $request->input('number' . $prodId);
+                    
+                    $wychodzi = new Wychodzace;
+                    $wychodzi->id_zejscia = $zejscie->id;
+                    $wychodzi->id_produkty = $prodId;
+                    $wychodzi->save();
 
-                $produkt = Produkty::find($prodId);
-                $il = $produkt->ilosc;
-                $produkt->ilosc = $il-$q;
-                $produkt->save();
+                    $produkt = Produkty::find($prodId);
+                    $il = $produkt->ilosc;
+                    $produkt->ilosc = $il-$q;
+                    $produkt->save();
+                }
             }
-        }
-        return redirect('look')->with('message', 'Utworzono zejście.');
+            $message = 'Towar wydano.';
+        break;
+        case "in":
+            $message = 'Do implementacji.';
+        break;
+        } 
+        return redirect('look')->with('message', $message);
     }
 
 
@@ -83,7 +92,7 @@ class LookCont extends Controller
             return view('look.edit', compact('produkt','dz'));
         } catch (\Exception $e) {
             // Przekieruj z komunikatem błędu
-            return redirect('/look')->with('message', 'Wystąpił błąd podczas edycji prodiału.');
+            return redirect('/look')->with('message', 'Wystąpił błąd podczas edycji.');
         }
     }
 
