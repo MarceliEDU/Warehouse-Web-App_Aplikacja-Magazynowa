@@ -72,10 +72,22 @@ class LookCont extends Controller
                     $produkt->save();
                 }
             }
+
             $message = 'Towar wydano.';
         break;
         case "in":
-            $message = 'Do implementacji.';
+
+            foreach ($request->all() as $prodId => $value) {
+                if (is_numeric($prodId)) {
+                    $q = $request->input('number' . $prodId);
+                    $produkt = Produkty::find($prodId);
+                    $il = $produkt->ilosc;
+                    $produkt->ilosc = $il+$q;
+                    $produkt->save();
+                }
+            }
+
+            $message = 'Towar dodano.';
         break;
         } 
         return redirect('look')->with('message', $message);
