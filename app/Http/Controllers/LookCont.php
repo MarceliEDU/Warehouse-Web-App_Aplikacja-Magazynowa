@@ -115,7 +115,7 @@ class LookCont extends Controller
             'id_dzialy' => 'required',
         ]);
         $prodial->update($dane);
-        return redirect('look')->with('message', 'Edycja wykonana pomyślnie.');
+        return redirect('look')->with('message', 'Pomyślnie przeniesiono.');
     }
 
 

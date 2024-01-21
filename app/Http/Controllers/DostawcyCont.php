@@ -22,7 +22,7 @@ class DostawcyCont extends Controller
     {
         $dos = $request->all();
         Dostawcy::create($dos);
-        return redirect('dostawcy')->with('message', 'Dodano dział poprawnie.');
+        return redirect('dostawcy')->with('message', 'Dodano dostawcę poprawnie.');
     }
 
     public function edit($id)
@@ -35,7 +35,7 @@ class DostawcyCont extends Controller
             return view('dostawcy.edit', compact('dostawca'));
         } catch (\Exception $e) {
             // Przekieruj z komunikatem błędu
-            return redirect('/dostawcy')->with('message', 'Wystąpił błąd podczas edycji działu.');
+            return redirect('/dostawcy')->with('message', 'Wystąpił błąd podczas edycji dostawcy.');
         }
     }
 
@@ -60,10 +60,10 @@ class DostawcyCont extends Controller
             $dos->delete();
 
             // Przekieruj z komunikatem sukcesu
-            return redirect('/dostawcy')->with('message', 'Dział został pomyślnie usunięty.');
+            return redirect('/dostawcy')->with('message', 'Dostawca został pomyślnie usunięty.');
         } catch (\Exception $e) {
             // Przekieruj z komunikatem błędu
-            return redirect('/dostawcy')->with('message', 'Wystąpił błąd podczas usuwania działu.');
+            return redirect('/dostawcy')->with('message', 'Wystąpił błąd podczas usuwania dostawcy.');
         }
     }
 }

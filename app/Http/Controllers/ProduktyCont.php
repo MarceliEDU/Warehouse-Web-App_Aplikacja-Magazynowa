@@ -70,10 +70,10 @@ class ProduktyCont extends Controller
             $prod->delete();
 
             // Przekieruj z komunikatem sukcesu
-            return redirect('/produkty')->with('message', 'Dział został pomyślnie usunięty.');
+            return redirect('/produkty')->with('message', 'Produkt został pomyślnie usunięty.');
         } catch (\Exception $e) {
             // Przekieruj z komunikatem błędu
-            return redirect('/produkty')->with('message', 'Wystąpił błąd podczas usuwania prodiału.');
+            return redirect('/produkty')->with('message', 'Wystąpił błąd podczas usuwania produktu.');
         }
     }
 }
