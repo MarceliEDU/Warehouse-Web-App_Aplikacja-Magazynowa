@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-    <h1 class="text-center">Edytowanie działu</h1>
+    <h1 class="text-center">Edycja działu</h1>
 
     <form action="{{ url('dzialy/' .$dzial->id)}}" method="post">
         {!! csrf_field() !!}
