@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-    <h1>Dodawanie produktu</h1>
+    <h1 class="text-center">Dodawanie produktu</h1>
 
     <form action="{{ url('produkty') }}" method="POST">
             @csrf
@@ -32,8 +32,9 @@
             @endforeach
             </select>
             </label>
+            <br/>
             
-            <button type="submit">Stwórz produkt</button>
+            <button type="submit" class="btn btn-success btn-sm mt-4">Stwórz produkt</button>
         </form>
 
 @stop

@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
 
+    <h1 class="text-center">Edycja produktu</h1>
+
     <form action="{{ url('produkty/' .$produkt->id)}}" method="post">
         {!! csrf_field() !!}
         {!! method_field('PATCH') !!}
@@ -40,8 +42,9 @@
         @endforeach
         </select>
         </label>
+        <br/>
 
-        <button type="submit">Zapisz</button>
+        <button type="submit" class="btn btn-success btn-sm mt-4">Zapisz</button>
     </form>
 
 @stop

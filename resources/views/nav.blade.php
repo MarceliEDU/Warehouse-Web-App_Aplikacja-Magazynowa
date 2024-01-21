@@ -2,9 +2,9 @@
     <a class="navbar-brand text-primary" href="/">Magazyn</a>
     <div class="navbar-nav w-100">
       <a class="nav-item nav-link" href="/" id="nav1">Główna</a>
-      <a class="nav-item nav-link" href="/look" id="nav2">Przegląd</a>
-
+      
       @auth
+        <a class="nav-item nav-link" href="/look" id="nav2">Przegląd</a>
         @if(Auth::user()->rola=="admin")
         <a class="nav-item nav-link disabled text-white" href="">CRUD:</a>
         <a class="nav-item nav-link" href="/dzialy" id="nav3">Działy</a>
@@ -21,6 +21,7 @@
         </a>
       @endauth
       @guest
+        <a class="nav-item nav-link" href="/login" id="nav2">Przegląd</a>
         <a class="nav-item nav-link ml-auto" href="/login" id="nav6">Login</a>
       @endguest  
     </div>
