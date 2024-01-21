@@ -3,13 +3,6 @@
 
 <div class="container">
 
-    @if(session('message'))          
-        </div>
-        <script>
-            alert("{{ session('message') }}"); 
-        </script>
-    @endif
-
     <a href="{{ url('/dostawcy/create') }}" class="btn btn-success btn-sm mt-2 mb-2">
         Dodaj dostawcę
     </a>

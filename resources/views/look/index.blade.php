@@ -1,21 +1,13 @@
 @extends('layout')
 @section('content')
 
-    @if(session('message'))          
-        </div>
-        <script>
-            alert("{{ session('message') }}"); 
-        </script>
-    @endif
+    
 
 <div class="container">
     
-    <div class="row">
-        <a href="{{ url('/look/create') }}" class="btn btn-success btn-sm mt-2 mb-2 col-12 col-sm-6" id="s2">
-            Wydanie towaru
-        </a>
-        <a href="{{ url('/look/#') }}" class="btn btn-info btn-sm mt-2 mb-2 col-12 col-sm-6" id="s3">
-            Odbiór towaru
+    <div>
+        <a href="{{ url('/look/create') }}" class="btn btn-info btn-sm mt-2 mb-2 w-100" id="s2">
+            Wydaj / Odbierz towar
         </a>
     </div>
 
@@ -51,13 +43,11 @@
     switch(getCookie('lang')){
       case 'pl':
         document.getElementById("s1").innerHTML = "Magazyn";
-        document.getElementById("s2").innerHTML = "Wydanie towaru";
-        document.getElementById("s3").innerHTML = "Odbiór towaru";
+        document.getElementById("s2").innerHTML = "Wydaj / Odbierz towar";
         break;
       case 'eng':
         document.getElementById("s1").innerHTML = "Warehouse";
-        document.getElementById("s2").innerHTML = "Product withdrawal";
-        document.getElementById("s3").innerHTML = "Product delivery";
+        document.getElementById("s2").innerHTML = "Product withdrawal / delivery";
       break;
     }
   }

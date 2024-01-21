@@ -17,7 +17,8 @@
     <title>Aplikacja Magazynowa</title>
 
 </head>
-<body onload="if(getCookie('lang')=='') setCookie('lang','pl'); navLang();">
+<body onload="if(getCookie('lang')=='') setCookie('lang','pl'); navLang();">   
+
     @include('nav')
 
     <div id="main" style="width: 100%; margin: 0; padding: 0;">
@@ -55,6 +56,15 @@ function getCookie(cname) {
 }
 
 </script>
+
+<!-- message controll -->
+@if(session('message'))        
+  <script>
+    if(getCookie('noPopup')=='')
+      if(confirm("{{ session('message') }}")==false)
+        setCookie('noPopup','1');
+  </script>
+@endif 
 
 </body>
 </html>
