@@ -15,10 +15,12 @@
         <a class="nav-item nav-link ml-auto" href="{{ url('/logout') }}">
           @if(Auth::user()->rola=="admin") 
           <span class="text-primary">{{ Auth::user()->name }}</span>
+          <i class="bi bi-person text-primary"></i>
           @else
           <span class="text-white">{{ Auth::user()->name }}</span>
+          <i class="bi bi-person text-white"></i>
           @endif
-          <i class="bi bi-person text-white"></i> 
+           
         </a>
       @endauth
       @guest

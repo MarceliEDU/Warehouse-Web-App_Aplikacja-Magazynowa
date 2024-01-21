@@ -5,20 +5,20 @@
     
     <form action="{{ url('look') }}" method="POST">
         @csrf
-        <button type="submit" class="btn btn-success btn-sm w-100 mt-2 mb-2">Potwierdź</button>
+        <button type="submit" class="btn btn-success btn-sm w-100 mt-2 mb-2" id="s1">Potwierdź</button>
     
-    <div class="form-check text-center">
+    <div class="form-check text-center" style="font-weight: bold">
         <label class="w-25">
             <input class="form-check-input" type="radio" name="inout" id="in" value="out" required>
-            Wydanie towaru
+            <span id="s2">Wydanie towaru</span>
         </label>
         <label class="w-25">
             <input class="form-check-input" type="radio" name="inout" id="out" value="in" required>
-            Odbiór towaru
+            <span id="s3">Odbiór towaru</span>
         </label>
     </div>
 
-    <div class="row">  
+    <div class="row bg-white rounded pt-3 pb-3 rounded">  
         
         @foreach($tab as $t)
             <div class="col-12 col-sm-6 pl-5 pr-5">
@@ -46,5 +46,21 @@
     </form>
 
 </div>
+<script>
+    function siteLang(){
+    switch(getCookie('lang')){
+      case 'pl':
+        document.getElementById("s1").innerHTML = "Potwierdź";
+        document.getElementById("s2").innerHTML = "Wydanie towaru";
+        document.getElementById("s3").innerHTML = "Odbiór towaru";
+        break;
+      case 'eng':
+        document.getElementById("s1").innerHTML = "Confirm";
+        document.getElementById("s2").innerHTML = "Withdrawal";
+        document.getElementById("s3").innerHTML = "Delivery";
+      break;
+    }
+  }
+</script>
 
 @stop
