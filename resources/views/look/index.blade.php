@@ -1,9 +1,7 @@
 @extends('layout')
 @section('content')
 
-    
-
-<div class="container">
+    @auth
     
     <div>
         <a href="{{ url('/look/create') }}" class="btn btn-info btn-sm mt-2 mb-2 w-100" id="s2">
@@ -15,7 +13,7 @@
 
     <div class="row">
         @foreach($tab as $t)
-            <div class="col-12 col-sm-6 pl-5 pr-5" style="border: 7px outset;">
+            <div class="col-12 col-sm-6 pl-5 pr-5 bg-white" style="border: 7px outset;">
                 <h4 class="text-center border-bottom border-primary">{{ $t['dzial'] }}</h4>
                 
                 <ol>
@@ -52,6 +50,19 @@
     }
   }
 </script>
+
+  @endauth
+  @guest
+
+    <div class="text-center mt-5 bg-secondary p-5 rounded">
+        <h2 class="text-white">Brak dostępu</h2>
+        <p class="text-white">Wyłącznie zalogowane osoby mają dostęp do tego zasobu</p>
+        <a href="/login" class="d-block mt-4 mb-1 p-3 bg-info text-center rounded text-white">
+            Zaloguj się
+         </a>
+    </div>
+
+  @endguest
 
 @stop
 

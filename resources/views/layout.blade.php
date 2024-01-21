@@ -17,7 +17,7 @@
     <title>Aplikacja Magazynowa</title>
 
 </head>
-<body onload="if(getCookie('lang')=='') setCookie('lang','pl'); navLang();">   
+<body onload="if(getCookie('lang')=='') setCookie('lang','pl'); navLang();" style="background-image: url(' {{ url('/img/bg.jpg') }} '); background-repeat: repeat; background-size: 100vw;">   
 
     @include('nav')
 

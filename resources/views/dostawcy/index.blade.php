@@ -16,7 +16,7 @@
                 <th >Działania</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="bg-white">
         @foreach($dos as $da)
             <tr>
                 <td>{{ $da->id }}</td>

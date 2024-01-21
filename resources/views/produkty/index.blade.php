@@ -18,7 +18,7 @@
                 <th scope="col">Działania</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="bg-white">
         @foreach($prod as $p)
             <tr>
                 <td scope="row">{{ $p->id }}</td>

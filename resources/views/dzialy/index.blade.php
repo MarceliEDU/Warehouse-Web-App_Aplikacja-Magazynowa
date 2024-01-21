@@ -15,7 +15,7 @@
                 <th >Działania</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="bg-white">
         @foreach($dz as $d)
             <tr>
                 <td>{{ $d->id }}</td>
