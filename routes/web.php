@@ -22,7 +22,7 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', function () {
-    return view('site.home');
+    return view('home');
 });
 
 Route::get('/produkty', function () {
