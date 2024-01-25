@@ -1,9 +1,9 @@
 @extends('layout')
 @section('content')
 
-<div class="container text-center">
+<div class="text-center mt-5">
 
-    <form action="{{ url('look/' .$produkt->id)}}" method="post" class="mt-5">
+    <form action="{{ url('look/' .$produkt->id)}}" method="post" class="p-5 bg-white rounded">
         {!! csrf_field() !!}
         {!! method_field('PATCH') !!}
         <input type="hidden" name="id" id="id" value="{{$produkt->id}}">

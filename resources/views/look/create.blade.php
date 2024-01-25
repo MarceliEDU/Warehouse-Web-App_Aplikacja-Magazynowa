@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div class="container">
+@if(Auth::user()->rola=="admin" || Auth::user()->rola=="zmianowy")
     
     <form action="{{ url('look') }}" method="POST">
         @csrf
@@ -45,9 +45,9 @@
     </div>
     </form>
 
-</div>
+
 <script>
-    function siteLang(){
+  function siteLang(){
     switch(getCookie('lang')){
       case 'pl':
         document.getElementById("s1").innerHTML = "Potwierdź";
@@ -62,5 +62,34 @@
     }
   }
 </script>
+
+@else
+
+    <div class="text-center mt-5 bg-secondary p-5 rounded">
+        <h2 class="text-white" id="s1">Brak dostępu</h2>
+        <p class="text-white" id="s2">Brak uprawnieć do przyjmowania/wydawania towaru.</p>
+        <a href="/look" class="d-block mt-4 mb-1 p-3 bg-info text-center rounded text-white" id="s3">
+            Wróć do przeglądu
+         </a>
+    </div>
+
+<script>
+  function siteLang(){
+    switch(getCookie('lang')){
+      case 'pl':
+        document.getElementById("s1").innerHTML = "Brak dostępu";
+        document.getElementById("s2").innerHTML = "Brak uprawnieć do przyjmowania/wydawania towaru.";
+        document.getElementById("s3").innerHTML = "Wróć do przeglądu";
+        break;
+      case 'eng':
+        document.getElementById("s1").innerHTML = "No permission";
+        document.getElementById("s2").innerHTML = "You don't have access to withdraw/take delivery.";
+        document.getElementById("s3").innerHTML = "Go back";
+      break;
+    }
+  }
+</script>
+
+@endif
 
 @stop
