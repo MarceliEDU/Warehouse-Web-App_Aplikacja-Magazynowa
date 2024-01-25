@@ -32,4 +32,22 @@ function startSetup(){
     siteLang();
 }
 
+//accesability
+function toggleHighContrast() {
+  document.body.classList.toggle("high-contrast");
+}
+
+function changeFontSize(direction) {
+  const root = document.documentElement;
+  const currentSize = parseFloat(getComputedStyle(root).fontSize);
+  const newSize = direction === "increase" ? currentSize * 1.1 : currentSize / 1.1;
+  root.style.fontSize = newSize + "px";
+}
+
+function toggleGreyscale() {
+  document.body.classList.toggle("greyscale");
+}
+
+
+
 </script>

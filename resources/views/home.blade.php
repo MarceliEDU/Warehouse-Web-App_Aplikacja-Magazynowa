@@ -5,7 +5,7 @@
 
    <div class="row mt-2">
       <div class="col-12 rounded text-center text-light p-2" style="background-image: url(' {{ url('/img/main_photo.jpg') }} '); background-size: cover;">
-         <h1 style="font-size: 11vw; text-shadow: 0px 0px 15px black;" class="text-primary display-1" id="s1">MAGAZYN</h1>
+         <h1 class="fontBanner text-primary display-1" id="s1">MAGAZYN</h1>
       </div>
 
       <div class="col-sm-6 col-12">
@@ -19,7 +19,7 @@
 
       <div class="col-sm-6 col-12">
          <div class="mt-2 mb-1 bg-white rounded p-2">
-            <h2 class="text-center display-5 mt-2" style="font-size: 4vw;" id="s4">O Aplikacji</h2>
+            <h2 class="text-center display-5 mt-2" id="s4">O Aplikacji</h2>
             <p class="text-secondary" style="text-align: justify;" id="s5">
                Aplikacja została stworzona przez Marcelego Hryniuka na zaliczenie projektu z przedmiotu Aplikacje Internetowe I. Została stworzona przy użyciu frameworku Laravel. O wygląd strony zadbał Bootstrap.
             </p>

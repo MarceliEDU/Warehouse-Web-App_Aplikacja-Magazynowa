@@ -36,6 +36,7 @@
     switch(getCookie('lang')){
       case 'pl':
         document.getElementById("lngbtn").innerHTML = "Change language to English";
+        document.getElementById("grbtn").innerHTML = "Wielkość napisów:";
         document.getElementById("nav1").innerHTML = "Główna";
         document.getElementById("nav2").innerHTML = "Przegląd";
         try{
@@ -46,6 +47,7 @@
       break;
       case 'eng':
         document.getElementById("lngbtn").innerHTML = "Zmień język na polski";
+        document.getElementById("grbtn").innerHTML = "Font size:";
         document.getElementById("nav1").innerHTML = "Home";
         document.getElementById("nav2").innerHTML = "Look";
         try{

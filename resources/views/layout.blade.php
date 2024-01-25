@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- Scripts -->
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.js','resources/scc/app.css'])
+
+    <link rel="stylesheet" type="text/css" href="{{ url('app.css') }}">
 
     <title>Aplikacja Magazynowa</title>
 
 </head>
-<body onload="startSetup();" style="background-image: url(' {{ url('/img/bg.jpg') }} '); background-repeat: repeat; background-size: 100vw;">   
+<body onload="startSetup();">   
 
     @include('nav')
 
