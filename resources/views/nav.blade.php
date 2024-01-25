@@ -37,6 +37,7 @@
       case 'pl':
         document.getElementById("lngbtn").innerHTML = "Change language to English";
         document.getElementById("grbtn").innerHTML = "Wielkość napisów:";
+        document.getElementById("sclbtn").innerHTML = "Skala szarości";
         document.getElementById("nav1").innerHTML = "Główna";
         document.getElementById("nav2").innerHTML = "Przegląd";
         try{
@@ -48,6 +49,7 @@
       case 'eng':
         document.getElementById("lngbtn").innerHTML = "Zmień język na polski";
         document.getElementById("grbtn").innerHTML = "Font size:";
+        document.getElementById("sclbtn").innerHTML = "Greyscale";
         document.getElementById("nav1").innerHTML = "Home";
         document.getElementById("nav2").innerHTML = "Look";
         try{

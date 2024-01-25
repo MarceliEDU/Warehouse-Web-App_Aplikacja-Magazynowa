@@ -2,7 +2,7 @@
     
     <div class="pt-3">
         <button onclick="LangSwap();" id="lngbtn" class="btn btn-secondary" style="cursor: pointer;">Change language to English</button>
-        <button onclick="toggleGreyscale();" class="btn btn-secondary">Greyscale</button>
+        <button onclick="toggleGreyscale();" class="btn btn-secondary" id="sclbtn">Greyscale</button>
         <!-- <button onclick="toggleHighContrast();" class="btn btn-secondary">High Contrast</button> -->
         <div class="btn-group btn-group-toggle">
             <button class="btn btn-secondary active" id="grbtn">Wielkość napisów:</button>
