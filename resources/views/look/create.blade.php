@@ -31,9 +31,8 @@
                             <input type="checkbox" id="{{ $p->id }}" name="{{  $p->id }}" value="{{  $p->id }}">
                             {{ $p->nazwa }}
                         </label>
-                        <span style="float: right">
-                            <input type="number" id="number{{  $p->id }}" name="number{{  $p->id }}" min="0" max="{{  $p->ilosc }}">
-                        </span>
+
+                        <input type="number" id="number{{  $p->id }}" name="number{{  $p->id }}" min="0" class="w-25 float-right">
                     </li>
                        
                 @endforeach
