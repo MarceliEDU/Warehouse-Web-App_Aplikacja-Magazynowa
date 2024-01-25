@@ -17,7 +17,7 @@
     <title>Aplikacja Magazynowa</title>
 
 </head>
-<body onload="if(getCookie('lang')=='') setCookie('lang','pl'); navLang();" style="background-image: url(' {{ url('/img/bg.jpg') }} '); background-repeat: repeat; background-size: 100vw;">   
+<body onload="startSetup();" style="background-image: url(' {{ url('/img/bg.jpg') }} '); background-repeat: repeat; background-size: 100vw;">   
 
     @include('nav')
 
@@ -29,33 +29,7 @@
 
     @include('footer')
 
-<script>
-
-function setCookie(cname,cvalue) {
-    let exdays=1; //czas trwania ciasteczka
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-}
-
-</script>
+@include('code')
 
 <!-- message controll -->
 @if(session('message'))        
